@@ -1,11 +1,12 @@
 const mysql = require('mysql2'); 
 
 const mysqlconnection = mysql.createConnection({
-  host:'localhost',
-  user:'root',
-  password:process.env.DBPassword,
-  database:'LoginRegisterAPI',
-})
+  host: 'localhost',
+  user: 'root',
+  password: process.env.DBPassword,
+  database:'LoginRegisterAPI',  
+
+});
 
 mysqlconnection.connect((err) => {
   if(err){

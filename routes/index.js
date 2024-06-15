@@ -26,7 +26,6 @@ router.post('/register', async (req, res) => {
       username:username,
     }
     const token = generateToken(payload)
-    console.log("Token :: " + token);
     db.query(isExist, username, (err, result) => {
       if (result.length > 0) return res.status(201).json({ msg: 'You are already registered.' });
       if (err) return res.status(500).json({ msg: 'Internal Server Error' });
@@ -70,7 +69,6 @@ router.post('/login', async (req, res) => {
 
       const payload = { username: user.username };
       const token = generateToken(payload);
-      console.log("Token :: " + token);
 
       res.status(200).json({
         msg: 'Login successful',
